@@ -9,19 +9,19 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import Image from 'next/image';
 import Stack from '@mui/material/Stack';
 
 // icons
 import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import Link from 'next/link';
 
 
-const pages = ['Products', 'Pricing', 'Blog'];
 const navItems = [
     {
         title: "Home",
@@ -90,7 +90,7 @@ function NavBar() {
                                 <MenuIcon />
                             </IconButton>
                             <Menu
-                                className = "w-full flex md:hidden justify-self-end"
+                                className="w-full flex md:hidden justify-self-end"
                                 id="menu-appbar"
                                 anchorEl={anchorElNav}
                                 anchorOrigin={{
@@ -105,7 +105,7 @@ function NavBar() {
                                 open={Boolean(anchorElNav)}
                                 onClose={handleCloseNavMenu}
                                 sx={{
-                                    display: { xs: 'flex', md: 'none', width:'100%', justifyContent: 'end' },
+                                    display: { xs: 'flex', md: 'none', width: '100%', justifyContent: 'end' },
                                 }}
                             >
                                 {navItems.map((item) => (
@@ -116,32 +116,33 @@ function NavBar() {
                             </Menu>
                         </Box>
 
-                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'center', width: '100%' } }}>
+                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'center', gap : '20px' , width: '100%' } }}>
                             {navItems.map((item) => (
-                                <Button
+                                <Link
+                                    className='text-white hover:text-blue-700 uppercase px-3'
                                     key={item.title}
-                                    onClick={handleCloseNavMenu}
+                                    href={item.href}
                                     sx={{ my: 2, color: 'white', display: 'block' }}
                                 >
                                     {item.title}
-                                </Button>
+                                </Link>
                             ))}
                         </Box>
 
 
-                        <Box className="text-white hidden lg:flex justify-end" sx={{ flexGrow: 1, display: { xs: 'none', color: 'white', md: 'flex' }, "& svg": { color: "white" } }}>
+                        <Box className="text-white hover:text-blue-600 hidden lg:flex justify-end" sx={{ flexGrow: 1, display: { xs: 'none', color: 'white', md: 'flex' }, "& svg": { color: "white" } }}>
 
                             <IconButton>
                                 <FacebookIcon />
                             </IconButton>
                             <IconButton>
-                                <FacebookIcon />
+                                <TwitterIcon />
                             </IconButton>
                             <IconButton>
-                                <FacebookIcon />
+                                <LinkedInIcon />
                             </IconButton>
                             <IconButton>
-                                <FacebookIcon />
+                                <InstagramIcon />
                             </IconButton>
                         </Box>
                     </Stack>
